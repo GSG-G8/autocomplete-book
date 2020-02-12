@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const querystring = require('querystring');
 
 const extention = {
   html: 'text/html',
@@ -38,24 +39,19 @@ const router = (request, response) => {
       }
     });
   } else if (url === '/books') {
-    console.log(request);
-    response.end();
-  }
-  // else if (url === "/books") {
-  //     console.log(request)
-  //     let allTheData = "";
-  //     request.on("data", chunkOfData => {
-  //       allTheData += chunkOfData;
-  //     });
+    let allTheData = '';
+    request.on('data', (chunkOfData) => {
+      allTheData += chunkOfData;
+    });
 
-  //     request.on("end", () => {
-  //         const changedData = querystring.parse(allTheData);
-  //         console.log(changedData);
-  //         response.writeHead( 308,{Location: '/'} )
-  //         response.end();
-  //       });
-  //     }
-  //     response.end();
+    request.on('end', () => {
+      const changedData = querystring.parse(allTheData);
+      console.log(changedData);
+      response.writeHead(308, { Location: '/' });
+      response.end();
+    });
+  }
+  response.end();
 };
 
 module.exports = router;
