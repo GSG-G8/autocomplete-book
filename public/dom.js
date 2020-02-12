@@ -3,7 +3,7 @@
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        const obj = JSON.parse(xhr.responseText);
+        // const obj = JSON.parse(xhr.responseText);
       }
     };
     xhr.open('POST', url, true);
