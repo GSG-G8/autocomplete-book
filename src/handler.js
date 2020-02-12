@@ -39,19 +39,33 @@ const router = (request, response) => {
       }
     });
   } else if (url === '/books') {
-    let allTheData = '';
-    request.on('data', (chunkOfData) => {
-      allTheData += chunkOfData;
-    });
+    const filePath = path.join(__dirname, 'data.json');
+    fs.readFile(filePath, (error, file) => {
+      if (error) {
+        response.writeHead(500, { 'content-Type': 'text/html' });
+        response.write('<h1>Error Not Found</h1>');
+        response.end();
+      } else {
+        let allTheData = '';
+        request.on('data', (chunkOfData) => {
+          allTheData += chunkOfData;
+        });
 
-    request.on('end', () => {
-      const changedData = querystring.parse(allTheData);
-      console.log(changedData);
-      response.writeHead(308, { Location: '/' });
-      response.end();
+        request.on('end', () => {
+          const changeFile = JSON.parse(file);
+          const arr = [];
+          changeFile.filter((book) => {
+            const titles = book.title;
+            if (titles.includes(allTheData)) {
+              arr.push(titles);
+            }
+          });
+          response.end(JSON.stringify(arr));
+
+        });
+      }
     });
   }
-  response.end();
 };
 
 module.exports = router;
