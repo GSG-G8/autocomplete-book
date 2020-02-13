@@ -40,6 +40,28 @@
       const authors = document.createElement('p');
       authors.textContent = `Authors: ${obj.items[0].volumeInfo.authors}`;
       item.appendChild(authors);
+
+      const publisher = document.createElement('p');
+      publisher.textContent = `Publisher: ${obj.items[0].volumeInfo.publisher}`;
+      item.appendChild(publisher);
+
+      const pageCount = document.createElement('p');
+      pageCount.textContent = `Page count: ${obj.items[0].volumeInfo.pageCount}`;
+      item.appendChild(pageCount);
+
+      const categories = document.createElement('p');
+      categories.textContent = `Category: ${obj.items[0].volumeInfo.categories[0]}`;
+      item.appendChild(categories);
+
+      const language = document.createElement('p');
+      language.textContent = `Language: ${obj.items[0].volumeInfo.language}`;
+      item.appendChild(language);
+
+      const description = document.createElement('p');
+      description.textContent = obj.items[0].volumeInfo.description;
+      description.classList.add('desc');
+      item.appendChild(description);
+
       books.appendChild(item);
     });
   });

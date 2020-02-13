@@ -1,5 +1,5 @@
 *{
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,25 +8,87 @@
     
 }
 
+
+.output {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 80%;
+}
+
 h1 {
-    margin-left: 25%;
-    margin-top: 15%;
+    text-align: center;
+    letter-spacing: 3px;
 }
 
 input{
-    margin-left: 27%;
+    margin-left: 30%;
     margin-top: 3%;
     width: 32%;
     border: 1px solid black;
     height: 49px;
-    border-radius: 50px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+input:focus {
+    outline: none;
 }
 
 .btn{
     width: 103px;
-    height: 39px;
     border:1px solid black;
-    border-radius: 28px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-left: 2%;
+    font-weight: 700;
+    letter-spacing: 2px;
+    
 }
 
+.btn:hover {
+    cursor: pointer;
+}
 
+.btn:focus {
+    outline: none;
+}
+
+.books {
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.item {
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: -4px 14px 28px -9px rgba(0,0,0,0.75);;
+}
+
+strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.cover {
+    width: 197px;
+    height: 274px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    text-align: justify;
+    margin-top: 27px;
+    height: 350px;
+    overflow-y: auto;
+    line-height: 27px;
+  }
