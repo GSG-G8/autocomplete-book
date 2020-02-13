@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const querystring = require('querystring');
 
 const extention = {
   html: 'text/html',
